@@ -1,0 +1,108 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #A9D6FF;
+  margin: 0 auto;
+}
+.backImg img{
+  width: 660px; height: 580px;
+  position: absolute; left: 3%; bottom: 0;
+}
+.whiteBox{
+  width: 500px; height: 550px;
+  background-color: #E5F3FF;
+  position: absolute; top: 18%; right: 9%;
+  border-radius: 10%;
+  text-align: center;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
+}
+#SignUpBox{
+  width: 500px; height: 550px;
+  background-color: #E5F3FF;
+  position: absolute; top: 18%; right: 9%;
+  border-radius: 10%;
+  text-align: center;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
+  display: none;
+}
+button{
+  border: 0;
+  outline: 0;
+}
+button.Login{
+  width: 230px; height: 200px;
+  background-color: #5250B1;
+  position: absolute; top: 8%; right: 25.3%;
+  border-radius: 15%;
+  font-size: 35px;
+  padding-bottom: 120px;
+  color: #ffffff;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
+}
+button.SignUp{
+  width: 230px; height: 200px;
+  background-color: #ffffff;
+  position: absolute; top: 8%; right: 10.3%;
+  border-radius: 15%;
+  font-size: 35px;
+  padding-bottom: 120px;
+  color: #5250B1;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
+}
+.container{
+  position: absolute; top: 20%; left: 0; right: 0; bottom: 0;
+}
+.container2{
+  position: absolute; top: 10%; left: 0; right: 0; bottom: 0;
+}
+input:focus{
+  outline: none;
+  color: #4563BD;
+}
+input::placeholder{
+  color: #5250B1;
+}
+input{
+  width: 400px;
+  background-color: transparent;
+  border: none;  border-bottom: 3px solid #5250B1;
+  font-size: 35px;
+}
+.EmailTxt{
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+.PwdTxt{
+  margin-bottom: 120px;
+}
+.NameTxt{
+  margin-bottom: 50px;
+}
+.GradeTxt{
+  width: 100px;
+  margin-right: 40px;
+}
+.ClassTxt{
+  width: 100px;
+  margin-right: 40px;
+}
+.NumTxt{
+  width: 100px;
+  margin-bottom: 50px;
+}
+.Emails{
+  margin-bottom: 50px;
+}
+.Pwds{
+  margin-bottom: 50px;
+}
+button.Submit{
+  width: 200px; height: 70px;
+  background-color: #5250B1;
+  border-radius: 50px;
+  color: #FDBE39;
+  font-size: 35px;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+a {
+  color: #00B7FF;
+}

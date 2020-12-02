@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <% if(isLogin) { %>
+        <h1>로그인 성공</h1>
+        <a href="/users/logout"><button style="width:auto;">Logout (<%=userEmail%>)</button></a>
+    <% }else{ %>
+    <button class="Login" id="Login" onclick="Select(1)">LOGIN</button>
+    <button class="SignUp" id="SignUp" onclick="Select(0)">SIGN UP</button>
+    <div class="whiteBox" id="LoginBox">
+        <form class="modal-content animate" action="/users/login" method="post">
+            <div class="container">
+                <input class="EmailTxt" type="text" placeholder="Email" name="email" required>
+                <br>
+                <input class="PwdTxt" type="password" placeholder="Password" name="pwd" required>
+                <br>
+                <button class="Submit" type="submit">LOGIN</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="SignUpBox">
+        <form class="modal-content animate" action="/users/signUp" method="post">
+            <div class="container2">
+                <input class="NameTxt" type="text" placeholder="이름" name="name" required>
+                <br>
+                <input class="GradeTxt" type="number" placeholder="학년" name="grade" required>
+                <input class="ClassTxt" type="number" placeholder="반" name="class" required>
+                <input class="NumTxt" type="number" placeholder="번호" name="num" required>
+                <br>
+                <input class="Emails" type="email" placeholder="Email" name="email" required>
+                <br>
+                <input class="Pwds" type="password" placeholder="Password" name="pwd" required>
+                <br>
+                <button class="Submit" type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function Select(status) {
+            var signUpBox = document.getElementById('SignUpBox');
+            var loginBox = document.getElementById('LoginBox');
+            var loginBtn = document.getElementById('Login');
+            var signUpBtn = document.getElementById('SignUp');
+
+            if (status == 0) {
+                loginBox.style.display = "none";
+                signUpBox.style.display = "block";
+                signUpBtn.style.backgroundColor = "#5250B1";
+                signUpBtn.style.color = "#ffffff";
+                loginBtn.style.backgroundColor = "#ffffff";
+                loginBtn.style.color="#5250B1";
+            } else if (status == 1) {
+                signUpBox.style.display = "none";
+                loginBox.style.display = "block";
+                signUpBtn.style.backgroundColor = "#ffffff";
+                signUpBtn.style.color = "#5250B1";
+                loginBtn.style.backgroundColor = "#5250B1";
+                loginBtn.style.color="#ffffff";
+            }
+        }
+    </script>
+
+    <div class="backImg">
+        <img src="/images/icon.png">
+    </div>
+<% } %>
+</body>
+
+</html>
