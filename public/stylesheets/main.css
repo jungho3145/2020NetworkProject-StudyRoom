@@ -1,0 +1,225 @@
+#nav_menu{
+    position: fixed; left: 0; right: 0; top: 0;
+}
+#nav_menu ul{
+    list-style-type: none;
+}
+#nav_menu ul li{
+    display: inline;
+}
+#apply{
+    margin-left: 100px;
+    margin-right: 100px;
+    font-weight: bold;
+    font-size: 20px;
+}
+#main{
+    color: #5250B1;
+    font-weight: bold;
+    font-size: 20px;
+}
+#name{
+    font-size: 20px;
+    font-weight: bold;
+    float: right;
+    margin-right: 200px;
+}
+#logout{
+    margin-right: 25px; height: 40px;
+    width: 140px;
+    color: #5250B1;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute; top: 15%; right: 0;
+    background-color: #ffffff;
+    border: solid; border-color: #5250B1;
+    outline: 0;
+    border-radius: 25px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+}
+.UserBox{
+    position: absolute; top: 8%; left: 1.2%;
+    width: 1500px;
+    height: 200px;
+    background-color: #448CCE;
+    border-radius: 25px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    font-size: 35px;
+}
+img{
+    width: 150px; height: 150px;
+    position: absolute; top: 13%; left: 5%;
+}
+#profile{
+    position: absolute; top: 0; left: 20%;
+    margin-top: 45px;
+}
+#etc{
+    position: absolute; top: 10%; right: 27%;
+    font-size: 20px;
+}
+#info{
+    position: absolute; top: 10%; right: 5%;
+    font-size: 20px;
+}
+p{
+    margin: 0;
+}
+h2{
+    color: #5250B1;
+    font-weight: bold;
+}
+#myTeam{
+    width: 620px; height: 370px;
+    background-color: #BFE1FF;
+    position: absolute; top: 45%; left: 56%;
+    border-radius: 25px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#num3{
+    position: absolute; top: 37%; left: 57%;
+}
+#usingRoom{
+    width: 300px; height: 370px;
+    background-color: #F9F9F9;
+    position: absolute; top: 45%; left: 4%;
+    border-radius: 25px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#inner{
+    width: 300px; height: 230px;
+    background-color: #BFE1FF;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+#num1{
+    position: absolute; top: 37%; left: 5%;
+}
+#bookRoom{
+    width: 300px; height: 370px;
+    background-color: #F9F9F9;
+    position: absolute; top: 45%; left: 30%;
+    border-radius: 25px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#num2{
+    position: absolute; top: 37%; left: 31%;
+}
+#returnBtn{
+    width: 100px; height: 35px;
+    color: #ffffff;
+    background-color: #5250B1;
+    font-weight: bold;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 25px;
+    position: absolute; bottom: 5%; left: 35%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+#cancelBtn{
+    width: 100px; height: 35px;
+    color: #ffffff;
+    background-color: #5250B1;
+    font-weight: bold;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 25px;
+    position: absolute; bottom: 5%; left: 35%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+#center{
+    width: 300px;
+    position: absolute; bottom: 26%;
+    text-align: center;
+    font-size: 25px;
+}
+#bottom{
+    width: 300px;
+    position: absolute; bottom: 20%;
+    text-align: center;
+}
+#team1{
+    width: 280px; height: 160px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    position: absolute; top: 4%; left: 3%;
+    font-size: 20px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#team2{
+    width: 280px; height: 160px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    position: absolute; top: 4%; left: 51.5%;
+    font-size: 20px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#team3{
+    width: 280px; height: 160px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    position: absolute; top: 52%; left: 3%;
+    font-size: 20px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#team4{
+    width: 280px; height: 160px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    position: absolute; top: 52%; left: 51.5%;
+    font-size: 20px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#addBtn4{
+    width: 280px; height: 160px;
+    background-color: #5250B1;
+    border-radius: 25px;
+    position: absolute; top: 52%; left: 51.5%;
+    font-size: 100px;
+    text-align: center;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#addBtn3{
+    width: 280px; height: 160px;
+    background-color: #5250B1;
+    border-radius: 25px;
+    position: absolute; top: 52%; left: 3%;
+    font-size: 100px;
+    text-align: center;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#addBtn2{
+    width: 280px; height: 160px;
+    background-color: #5250B1;
+    border-radius: 25px;
+    position: absolute; top: 4%; left: 51.5%;
+    font-size: 100px;
+    text-align: center;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#addBtn1{
+    width: 280px; height: 160px;
+    background-color: #5250B1;
+    border-radius: 25px;
+    position: absolute; top: 4%; left: 3%;
+    font-size: 100px;
+    text-align: center;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
+#delete{
+    width: 120px; height: 40px;
+    background-color: #5250B1;
+    border-radius: 25px;
+    position: absolute; bottom: 3%; left: 26%;
+    border: 0;
+    outline: 0;
+    color: #ffffff;
+    font-size: 15px;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
