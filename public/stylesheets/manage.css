@@ -1,0 +1,191 @@
+#nav_menu{
+    position: fixed; left: 0; right: 0; top: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 1px rgba(45, 33, 223, 0.4);
+}
+#nav_menu ul{
+    list-style-type: none;
+}
+#nav_menu ul li{
+    display: inline;
+}
+#studentManage{
+    margin-left: 100px;
+    margin-right: 100px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #5250B1;
+}
+#applyManage{
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 100px;
+}
+#roomNow{
+    font-weight: bold;
+    font-size: 20px;
+}
+#name{
+    font-size: 20px;
+    font-weight: bold;
+    float: right;
+    margin-right: 200px;
+}
+#logout{
+    margin-right: 25px; height: 40px;
+    width: 140px;
+    color: #5250B1;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute; top: 15%; right: 0;
+    background-color: #ffffff;
+    border: solid; border-color: #5250B1;
+    outline: 0;
+    border-radius: 25px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+}
+#usable{
+    border-bottom: 6px solid #5250B1;
+    color: #5250B1;
+}
+button{
+    width: 80px;
+    background-color: transparent;
+    outline: 0;
+    border: none; border-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0;
+}
+#btn{
+    position: absolute; top: 11%; left: 3%;
+}
+#grade1{
+    border-bottom: 6px solid #5250B1;
+    color: #5250B1;
+}
+hr{
+    position: absolute; top: 14.5%; left: 3%;
+    margin: 0;
+}
+#first{
+    width: 1440px; height: 600px;
+    position: absolute; top: 18%; left: 3%;
+}
+#second{
+    width: 1440px; height: 600px;
+    position: absolute; top: 18%; left: 3%;
+    display: none;
+}
+#third{
+    width: 1440px; height: 600px;
+    position: absolute; top: 18%; left: 3%;
+    display: none;
+}
+#class1{
+    width: 300px; height: 500px;
+    background-color: #344687;
+    border-radius: 25px;
+    position: absolute; top: 5%;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+}
+#ban{
+    width: 100px; height: 50px;
+    background-color: #A5D9FF;
+    border-radius: 50px;
+    position: absolute; top: 2%; left: 1.4%;
+}
+#ban p{
+    width: 100px; height: 50px;
+    color: #19237E;
+    font-size: 30px;
+    margin: 0; margin-top: 3px;
+    text-align: center;
+}
+#class2{
+    width: 300px; height: 500px;
+    background-color: #344687;
+    border-radius: 25px;
+    position: absolute; top: 5%; left: 26.5%;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+}
+#ban2{
+    width: 100px; height: 50px;
+    background-color: #A5D9FF;
+    border-radius: 50px;
+    position: absolute; top: 2%; left: 27.9%;
+}
+#ban2 p{
+    width: 100px; height: 50px;
+    color: #19237E;
+    font-size: 30px;
+    margin: 0; margin-top: 3px;
+    text-align: center;
+}
+
+#class3{
+    width: 300px; height: 500px;
+    background-color: #344687;
+    border-radius: 25px;
+    position: absolute; top: 5%; left: 53%;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+}
+#ban3{
+    width: 100px; height: 50px;
+    background-color: #A5D9FF;
+    border-radius: 50px;
+    position: absolute; top: 2%; left: 54.5%;
+}
+#ban3 p{
+    width: 100px; height: 50px;
+    color: #19237E;
+    font-size: 30px;
+    margin: 0; margin-top: 3px;
+    text-align: center;
+}
+
+#class4{
+    width: 300px; height: 500px;
+    background-color: #344687;
+    border-radius: 25px;
+    position: absolute; top: 5%; right: 0;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+}
+#ban4{
+    width: 100px; height: 50px;
+    background-color: #A5D9FF;
+    border-radius: 50px;
+    position: absolute; top: 2%; left: 81%;
+}
+#ban4 p{
+    width: 100px; height: 50px;
+    color: #19237E;
+    font-size: 30px;
+    margin: 0; margin-top: 3px;
+    text-align: center;
+}
+#nowPeo{
+    position: absolute; top: 6%;
+    width: 180px;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-size: 28px;
+    color: #ffffff;
+}
+
+#moveinfo{
+    background-color: #ffffff;
+    width: 250px; height: 220px;
+    max-height: 220px;
+    border-radius: 25px;
+    margin-left: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: absolute; top: 50%;
+    text-align: center;
+}
+#moveinfo p{
+    font-weight: bold;
+    width: 200px;
+    margin-left: 25px;
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../public/stylesheets/manage.css" />
+</head>
+
+<body>
+
+    <hr width="93.5%" color="#000000" z-index: 1;>
+    <div id="btn" z-index: 2;>
+        <button id="grade1" onclick="change(0)">1 학년</button>
+        <button id="grade2" onclick="change(1)">2 학년</button>
+        <button id="grade3" onclick="change(2)">3 학년</button>
+    </div>
+    <div id="first">
+        <div id="class1">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban">
+            <p>1반</p>
+        </div>
+        <div id="class2">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban2">
+            <p>2반</p>
+        </div>
+        <div id="class3">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban3">
+            <p>3반</p>
+        </div>
+        <div id="class4">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban4">
+            <p>4반</p>
+        </div>
+    </div>
+    <div id="second">
+        <div id="class1">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban">
+            <p>1반</p>
+        </div>
+        <div id="class2">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban2">
+            <p>2반</p>
+        </div>
+        <div id="class3">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban3">
+            <p>3반</p>
+        </div>
+        <div id="class4">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban4">
+            <p>4반</p>
+        </div>
+    </div>
+    <div id="third">
+        <div id="class1">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban">
+            <p>1반</p>
+        </div>
+        <div id="class2">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban2">
+            <p>2반</p>
+        </div>
+        <div id="class3">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban3">
+            <p>3반</p>
+        </div>
+        <div id="class4">
+            <div id="nowPeo">
+                <p>재적 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= totStu %>></p>
+                <p>현원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= nowStu %></p>
+                <p>이동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= movStu %></p>
+            </div>
+            <div id="moveinfo" style="overflow: auto;">
+                <% for(var i = 0; i < 이동인원.length; i++){ %>
+                <p><%= 이동인원[i].num 이동인원[i].name - 이동인원[i].place</p>
+                <% } %>
+            </div>
+        </div>
+        <div id="ban4">
+            <p>4반</p>
+        </div>
+    </div>
+    <div id="nav_menu">
+        <ul>
+            <li>LOGO</li>
+            <li id="studentManage">학생 관리</li>
+            <li id="applyManage">신청 관리</li>
+            <li id="roomNow">실 사용 현황</li>
+            <li id="name"><%= userName %> 선생님</li>
+        </ul>
+        <button id="logout">LOGOUT</button>
+    </div>
+    <script>
+        function change(num) {
+            var grade1 = document.getElementById('grade1');
+            var grade2 = document.getElementById('grade2');
+            var grade3 = document.getElementById('grade3');
+            var first = document.getElementById('first');
+            var second = document.getElementById('second');
+            var third = document.getElementById('third');
+            if (num == 0) {
+                grade1.style.borderBottom = "6px solid #5250B1";
+                grade2.style.borderBottom = "0";
+                grade3.style.borderBottom = "0";
+                grade1.style.color = "#5250B1";
+                grade2.style.color = "#000000";
+                grade3.style.color = "#000000";
+                first.style.display = "block";
+                second.style.display = "none";
+                third.style.display = "none";
+            } else if (num == 1) {
+                grade1.style.borderBottom = "0"
+                grade2.style.borderBottom = "6px solid #5250B1";
+                grade3.style.borderBottom = "0"
+                grade1.style.color = "#000000";
+                grade2.style.color = "#5250B1";
+                grade3.style.color = "#000000";
+                first.style.display = "none";
+                second.style.display = "block";
+                third.style.display = "none";
+            } else if (num == 2) {
+                grade1.style.borderBottom = "0"
+                grade2.style.borderBottom = "0";
+                grade3.style.borderBottom = "6px solid #5250B1"
+                grade1.style.color = "#000000";
+                grade2.style.color = "#000000";
+                grade3.style.color = "#5250B1";
+                first.style.display = "none";
+                second.style.display = "none";
+                third.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>
