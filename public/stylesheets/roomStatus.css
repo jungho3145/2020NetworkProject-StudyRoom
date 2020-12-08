@@ -1,0 +1,67 @@
+#nav_menu{
+    position: fixed; left: 0; right: 0; top: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 1px rgba(45, 33, 223, 0.4);
+}
+#nav_menu ul{
+    list-style-type: none;
+}
+#nav_menu ul li{
+    display: inline;
+}
+#studentManage{
+    margin-left: 100px;
+    margin-right: 100px;
+    font-weight: bold;
+    font-size: 20px;
+}
+#applyManage{
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 100px;
+    color: #5250B1;
+}
+#roomNow{
+    font-weight: bold;
+    font-size: 20px;
+}
+#name{
+    font-size: 20px;
+    font-weight: bold;
+    float: right;
+    margin-right: 200px;
+}
+#logout{
+    margin-right: 25px; height: 40px;
+    width: 140px;
+    color: #5250B1;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute; top: 15%; right: 0;
+    background-color: #ffffff;
+    border: solid; border-color: #5250B1;
+    outline: 0;
+    border-radius: 25px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+}
+#box{
+    position: absolute; top: 60px; left: 35px;
+    width: 1460px;
+}
+#box_out{
+    width: 280px; height: 380px;
+    margin: 0;
+    float: left;
+    border-radius: 25px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+}
+#box_in{
+    width: 280px; height: 230px;
+    background-color: #A9D6FF;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
