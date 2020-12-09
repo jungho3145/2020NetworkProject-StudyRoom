@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>studentApply</title>
-    <link rel="stylesheet" href="stylesheets/apply.css" />
+    <link rel="stylesheet" href="../public/stylesheets/apply.css" />
   </head>
 
   <body>
@@ -18,7 +18,7 @@
           <img src="" />
         </div>
         <p id="center"><%= usable[i].name %></p>
-        <button id="applyBtn" onclick="modal('my_modal', '<%= usable[i].name %>')">신청</button>
+        <button id="applyBtn" onclick="modal('my_modal', center.innerText)">신청</button>
       </div>
       <% } %>
 
@@ -108,7 +108,7 @@
         var zIndex = 9999;
         var modal = document.getElementById(id);
         var RoomName = document.getElementById('roomName');
-        RoomName.innerHTML = name;
+        RoomName.innerText = name;
 
         // 모달 div 뒤에 희끄무레한 레이어
         var bg = document.createElement("div");
