@@ -18,7 +18,7 @@
           <img src="" />
         </div>
         <p id="center"><%= usable[i].name %></p>
-        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
+        <button id="applyBtn" onclick="modal('my_modal', '<%= usable[i].name %>')">신청</button>
       </div>
       <% } %>
 
@@ -29,7 +29,7 @@
         </div>
         <div id="control">
           <img src="" />
-          <p id="roomName">프로그래밍1실</p> <!--방 이름 선택한걸로 바뀌게 할 수 있나?-->
+          <p id="roomName"></p> <!--방 이름 선택한걸로 바뀌게 할 수 있나?-->
           <p id="script">사용 교시</p>
           <div id="selectBox">
             <label
@@ -104,9 +104,11 @@
         }
       }
 
-      function modal(id) {
+      function modal(id, name) {
         var zIndex = 9999;
         var modal = document.getElementById(id);
+        var RoomName = document.getElementById('roomName');
+        RoomName.innerHTML = name;
 
         // 모달 div 뒤에 희끄무레한 레이어
         var bg = document.createElement("div");
