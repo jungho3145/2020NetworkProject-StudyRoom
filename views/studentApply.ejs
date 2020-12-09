@@ -12,13 +12,12 @@
     </div>
     <div id="showRoom">
       <!--하드코딩 되있는거 forEach로 수정-->
-      <% for(var i = 0; i < usableRoom.length; i++){ %>
+      <% for(var i = 0; i < usable.length; i++){ %>
       <div id="Room">
         <div id="inner">
           <img src="" />
         </div>
-        <p id="center"><%= usableRoom[i].name %></p>
-        <p id="bottom"><%= usableRoom[i].maxPeo %></p>
+        <p id="center"><%= usable[i].name %></p>
         <button id="applyBtn" onclick="modal('my_modal')">신청</button>
       </div>
       <% } %>
@@ -30,7 +29,7 @@
         </div>
         <div id="control">
           <img src="" />
-          <p id="roomName">프로그래밍2실</p>
+          <p id="roomName" name="roomName" value="프로그래밍1실">프로그래밍1실</p>
           <p id="script">사용 교시</p>
           <div id="selectBox">
             <label

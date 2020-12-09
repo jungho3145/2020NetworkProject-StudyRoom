@@ -8,6 +8,7 @@ var reservationModel = require("../models/reservationDAO");
 /* GET home page. */
 router.get("/", function (req, res, next) {
   if (req.session.isLogin) {
+    updateModel.dataUpdateByTime();
     res.redirect("/studentMain");
   } else {
     updateModel.dataUpdateByTime();
@@ -20,6 +21,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/studentMain", (req, res) => {
+  updateModel.dataUpdateByTime();
   userModel.selectUserById(req.session.studentId, (User) => {
     console.log(User);
     var studentId = String(User[0].studentId);
@@ -34,55 +36,31 @@ router.get("/studentMain", (req, res) => {
         console.log(count);
         teamModel.usingOrBookingData(studentId, (usingOrBooking) => {
           var using, booking;
-          var date = new Date();
-          if (usingOrBooking.length != 0) {
-            console.log(usingOrBooking);
-            if (
-              usingOrBooking.length >= 1 &&
-              date < new Date(usingOrBooking[0].startDate)
-            ) {
-              console.log("if 1");
-              if (usingOrBooking.length == 0) {
-                Booking = false;
-                using = {
-                  usingRoom: usingOrBooking[0].name,
-                };
-              } else {
-                using = false;
-                booking = {
-                  bookingRoom: usingOrBooking[0].name,
-                };
-              }
-              console.log(booking);
-            } else if (
-              usingOrBooking.length >= 2 &&
-              date < new Date(usingOrBooking[1].startDate)
-            ) {
-              console.log("if 2");
-              using = {
-                usingRoom: usingOrBooking[0].name,
-              };
-              booking = {
-                bookingRoom: usingOrBooking[1].name,
-              };
-            }
-
-            console.log("usisg" + using);
-            console.log("booking" + booking);
-            res.render("studentMain", {
-              title: "studentMain",
-              user: {
-                name: User[0].name,
-                Grade: grade,
-                Class: classnum,
-                Num: num,
-              },
-              teamCnt: count[0].count,
-              Using: using,
-              Booking: booking,
-              team: Team,
-            });
+          if (usingOrBooking.length <= 1) {
+            using = {
+              usingRoom: usingOrBooking[0].name,
+            };
+          } else {
+            using = {
+              usingRoom: usingOrBooking[0].name,
+            };
+            booking = {
+              bookingRoom: usingOrBooking[1].name,
+            };
           }
+          res.render("studentMain", {
+            title: "studentMain",
+            user: {
+              name: User[0].name,
+              Grade: grade,
+              Class: classnum,
+              Num: num,
+            },
+            teamCnt: count[0].count,
+            Using: using,
+            Booking: booking,
+            team: Team,
+          });
         });
       });
     });
@@ -92,13 +70,9 @@ router.get("/studentMain", (req, res) => {
 router.get("/studentApply", (req, res) => {
   reservationModel.getUsableRooms((results) => {
     teamModel.readTeam(req.session.studentId, (teams) => {
-      var usableData = [{}, {}, {}, {}, {}, {}];
-      for (let index = 0; index < usableData.length; index++) {
-        usableData[index] = results[0];
-      }
       res.render("studentApply", {
         userName: req.session.name,
-        usable: usableData,
+        usable: results,
         team: teams,
       });
     });
