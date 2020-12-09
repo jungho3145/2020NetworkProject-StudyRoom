@@ -2,12 +2,27 @@ var connection = require("./db");
 
 exports.selectUser = function (email, cb) {
   connection.query(
-    "SELECT * FROM user WHERE email = ?",
+    "SELECT * FROM user WHERE email = ? ",
     [email],
     function (error, results, fields) {
       if (error) {
         console.log(error);
       } else {
+        cb(results);
+      }
+    }
+  );
+};
+
+exports.selectUserById = function (studentId, cb) {
+  connection.query(
+    "SELECT * FROM user WHERE studentId = ?",
+    [studentId],
+    (error, results, fields) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Model: " + results[0].name);
         cb(results);
       }
     }

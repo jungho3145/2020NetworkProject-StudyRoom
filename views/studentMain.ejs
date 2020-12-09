@@ -1,163 +1,181 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title><%= title %></title>
-    <link rel="stylesheet" href="../public/stylesheets/main.css" />
-</head>
+    <link rel="stylesheet" href="stylesheets/main.css" />
+  </head>
 
-<body>
+  <body>
     <div id="nav_menu">
-        <ul>
-            <li>LOGO</li>
-            <li id="apply"><a href="apply.html">실 신청</a></li>
-            <li id="main">마이페이지</li>
-            <li id="name"><%= userName %> 학생</li>
-        </ul>
-        <button id="logout">LOGOUT</button>
+      <ul>
+        <li>LOGO</li>
+        <li id="apply"><a href="/studentApply">실 신청</a></li>
+        <!--StudentApply페이지로 이동-->
+        <li id="main">마이페이지</li>
+        <!--마이페이지?-->
+        <li id="name"><%= user.name %> 학생</li>
+        <!--User테이블 참조-->
+      </ul>
+      <a href="/users/logout"><button id="logout">LOGOUT</button></a>
     </div>
 
     <div class="UserBox">
-        <img src="../public/images/user.png">
-        <div id="profile">
-            <p><%= userName %> 학생</p>
-            <p><%= userGrade %> 학년 <%= userClass %> 반 <%= userNum %> 번</p>
-        </div>
-        <div id="etc">
-            <ul>참여한 팀</ul>
-            <ul>실 신청 현황</ul>
-            <ul>실 사용중</ul>
-        </div>
-        <div id="info">
-            <ul><%= teamCnt %></ul>
-            <ul><%= status %></ul>
-            <ul><%= usingStatus %></ul>
-        </div>
+      <img src="images/user.png" />
+      <div id="profile">
+        <p><%= user.name %> 학생</p>
+        <p><%= user.Grade %> 학년 <%= user.Class %> 반 <%= user.Num %> 번</p>
+      </div>
+      <div id="etc">
+        <ul>
+          참여한 팀
+        </ul>
+        <ul>
+          실 신청 현황
+        </ul>
+        <ul>
+          실 사용중
+        </ul>
+      </div>
+      <div id="info">
+        <ul>
+          <%= teamCnt %>개
+        </ul>
+        <% if(Booking){ %>
+        <ul>
+          <%= Booking.bookingRoom %>
+        </ul>
+        <% } %> <% if(Using){ %>
+        <ul>
+          <%= Using.usingRoom %>
+        </ul>
+        <% } %>
+        <!--이게 뭐지-->
+      </div>
     </div>
 
     <div id="using">
-        <h2 id="num1">사용 중인 실</h2>
-        <% if(isUsing){ %>
-        <div id="usingRoom">
-            <div id="inner">
-                <img src="">
-            </div>
-            <p id="center"><%= usingRoom %></p>
-            <p id="bottom"><%= usingPeo %></p>
-            <button id="returnBtn" on>반납</button>
+      <h2 id="num1">사용 중인 실</h2>
+      <% if(Using){ %>
+      <div id="usingRoom">
+        <div id="inner">
+          <img src="images/user.png" />
         </div>
-        <% } %>
+        <p id="center"><%= Using.usingRoom %></p>
+        <button id="returnBtn">반납</button>
+      </div>
+      <% } %>
     </div>
     <div id="using">
-        <h2 id="num2">예약 대기중인 실</h2>
-        <% if(isBooking){ %>
-        <div id="bookRoom">
-            <div id="inner">
-                <img src="">
-            </div>
-            <p id="center"><%= bookingRoom %></p>
-            <p id="bottom"><%= maxPeo %></p>
-            <button id="cancelBtn">취소</button>
+      <h2 id="num2">예약 대기중인 실</h2>
+      <% if(Booking){ %>
+      <div id="bookRoom">
+        <div id="inner">
+          <img src="images/user.png" />
         </div>
-        <% } %>
+        <p id="center"><%= Booking.bookingRoom %></p>
+        <button id="cancelBtn">취소</button>
+      </div>
+      <% } %>
     </div>
     <div id="team">
-        <h2 id="num3">내 팀</h2>
-        <div id="myTeam">
-            <% if(teamCnt == 4){ %>
-            <div id="team1">
-                <p id="teamName"><%= teamName %> 팀</p>
-                <p id="teacher">지도 교사 : <%= teacher %></p>
-                <p id="leader">팀장 : <%= leader %></p>
-                <button id="delete" onclick="deleteTeam()">삭제</button>
-            </div>
-            <div id="team2">
-                <p id="teamName"><%= teamName %> 팀</p>
-                <p id="teacher">지도 교사 : <%= teacher %></p>
-                <p id="leader">팀장 : <%= leader %></p>
-                <button id="delete" onclick="deleteTeam()">삭제</button>
-            </div>
-            <div id="team3">
-                <p id="teamName"><%= teamName %> 팀</p>
-                <p id="teacher">지도 교사 : <%= teacher %></p>
-                <p id="leader">팀장 : <%= leader %></p>
-                <button id="delete" onclick="deleteTeam()">삭제</button>
-            </div>
-            <div id="team4">
-                <p id="teamName"><%= teamName %> 팀</p>
-                <p id="teacher">지도 교사 : <%= teacher %></p>
-                <p id="leader">팀장 : <%= leader %></p>
-                <button id="delete" onclick="deleteTeam()">삭제</button>
-            </div>
-            <% }else if(teamCnt == 3){ %>
-            <div id="team1">
-                <p id="teamName"><%= teamName %> 팀</p>
-                <p id="teacher">지도 교사 : <%= teacher %></p>
-                <p id="leader">팀장 : <%= leader %></p>
-                <button id="delete" onclick="deleteTeam()">삭제</button>
-            </div>
-            <div id="team2">
-                <p id="teamName"><%= teamName %> 팀</p>
-                <p id="teacher">지도 교사 : <%= teacher %></p>
-                <p id="leader">팀장 : <%= leader %></p>
-                <button id="delete" onclick="deleteTeam()">삭제</button>
-            </div>
-            <div id="team3">
-                <p id="teamName"><%= teamName %> 팀</p>
-                <p id="teacher">지도 교사 : <%= teacher %></p>
-                <p id="leader">팀장 : <%= leader %></p>
-                <button id="delete" onclick="deleteTeam()">삭제</button>
-            </div>
-            <div id="addBtn4" onclick="createTeam()">
-                <p id="add">+</p>
-            </div>
-            <% }else if(teamCnt == 2){ %>
-            <div id="team1">
-                <p id="teamName"><%= teamName %> 팀</p>
-                <p id="teacher">지도 교사 : <%= teacher %></p>
-                <p id="leader">팀장 : <%= leader %></p>
-                <button id="delete" onclick="deleteTeam()">삭제</button>
-            </div>
-            <div id="team2">
-                <p id="teamName"><%= teamName %> 팀</p>
-                <p id="teacher">지도 교사 : <%= teacher %></p>
-                <p id="leader">팀장 : <%= leader %></p>
-                <button id="delete" onclick="deleteTeam()">삭제</button>
-            </div>
-            <div id="addBtn3" onclick="createTeam()">
-                <p id="add">+</p>
-            </div>
-            <% }else if(teamCnt == 1){ %>
-            <div id="team1">
-                <p id="teamName"><%= teamName %> 팀</p>
-                <p id="teacher">지도 교사 : <%= teacher %></p>
-                <p id="leader">팀장 : <%= leader %></p>
-                <button id="delete" onclick="deleteTeam()">삭제</button>
-            </div>
-            <div id="addBtn2" onclick="createTeam()">
-                <p id="add">+</p>
-            </div>
-            <% }else if(teamCnt == 0){ %>
-            <div id="addBtn1" onclick="createTeam()">
-                <p id="add">+</p>
-            </div>
-            <% } %>
+      <h2 id="num3">내 팀</h2>
+      <div id="myTeam">
+        <% if(teamCnt == 4){ %>
+        <!--팀 수만큼 forEach문 돌리면되지 않을까-->
+        <div id="team1">
+          <p id="teamName"><%= team[0].TeamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[0].name %></p>
+          <p id="leader">팀장 : <%= team[0].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
         </div>
+        <div id="team2">
+          <p id="teamName"><%= team[1].TeamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[1].name %></p>
+          <p id="leader">팀장 : <%= team[1].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
+        </div>
+        <div id="team3">
+          <p id="teamName"><%= team[2].TeamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[2].name %></p>
+          <p id="leader">팀장 : <%= team[2].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
+        </div>
+        <div id="team4">
+          <p id="teamName"><%= team[3].TeamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[3].name %></p>
+          <p id="leader">팀장 : <%= team[3].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
+        </div>
+        <% }else if(teamCnt == 3){ %>
+        <div id="team1">
+          <p id="teamName"><%= team[0].TeamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[0].name %></p>
+          <p id="leader">팀장 : <%= team[0].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
+        </div>
+        <div id="team2">
+          <p id="teamName"><%= team[1].TeamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[1].name %></p>
+          <p id="leader">팀장 : <%= team[1].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
+        </div>
+        <div id="team3">
+          <p id="teamName"><%= team[2].TeamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[2].name %></p>
+          <p id="leader">팀장 : <%= team[2].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
+        </div>
+        <div id="addBtn4" onclick="createTeam()">
+          <p id="add">+</p>
+        </div>
+        <% }else if(teamCnt == 2){ %>
+        <div id="team1">
+          <p id="teamName"><%= team[0].TeamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[0].name %></p>
+          <p id="leader">팀장 : <%= team[0].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
+        </div>
+        <div id="team2">
+          <p id="teamName"><%= team[1].TeamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[1].name %></p>
+          <p id="leader">팀장 : <%= team[1].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
+        </div>
+        <div id="addBtn3" onclick="createTeam()">
+          <p id="add">+</p>
+        </div>
+        <% }else if(teamCnt == 1){ %>
+        <div id="team1">
+          <p id="teamName"><%= team[0].teamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[0].name %></p>
+          <p id="leader">팀장 : <%= team[0].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
+        </div>
+        <div id="addBtn2" onclick="createTeam()">
+          <p id="add">+</p>
+        </div>
+        <% }else if(teamCnt == 0){ %>
+        <div id="addBtn1" onclick="createTeam()">
+          <p id="add">+</p>
+        </div>
+        <% } %>
+      </div>
     </div>
 
     <script>
-        function deleteTeam(num) {
-            if (confirm("팀을 삭제하시겠습니까??") == true) {    //확인
-                //삭제하는코드
-            } else {   //취소
-                return false;
-            }
+      function deleteTeam(num) {
+        if (confirm("팀을 삭제하시겠습니까??") == true) {
+          //확인
+          //삭제하는코드
+        } else {
+          //취소
+          return false;
         }
+      }
 
-        function createTeam(){
-            
-        }
+      function createTeam() {
+        // createTeam Post전송 데이터베이스에서 처리
+      }
     </script>
-</body>
-
+  </body>
 </html>

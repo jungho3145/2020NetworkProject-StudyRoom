@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>studentApply</title>
+    <link rel="stylesheet" href="stylesheets/apply.css" />
+  </head>
+
+  <body>
+    <hr width="93.5%" color="#000000" z-index: 1; />
+    <div id="btn" z-index: 1;>
+      <button id="usable" onclick="change(0)">사용 가능 실</button>
+    </div>
+    <div id="showRoom">
+      <!--하드코딩 되있는거 forEach로 수정-->
+      <div id="Room">
+        <div id="inner">
+          <img src="" />
+        </div>
+        <p id="center"><%= usable[0].name %></p>
+        <p id="bottom">10</p>
+        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
+      </div>
+      <div id="Room" style="position: absolute; left: 20.7%">
+        <div id="inner">
+          <img src="" />
+        </div>
+        <p id="center"><%= usable[1].name %></p>
+        <p id="bottom">10</p>
+        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
+      </div>
+      <div id="Room" style="position: absolute; left: 41.4%">
+        <div id="inner">
+          <img src="" />
+        </div>
+        <p id="center"><%= usable[2].name %></p>
+        <p id="bottom">10</p>
+        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
+      </div>
+      <div id="Room" style="position: absolute; left: 62.1%">
+        <div id="inner">
+          <img src="" />
+        </div>
+        <p id="center"><%= usable[3].name %></p>
+        <p id="bottom">10</p>
+        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
+      </div>
+      <div id="Room" style="position: absolute; left: 82.8%">
+        <div id="inner">
+          <img src="" />
+        </div>
+        <p id="center"><%= usable[4].name %></p>
+        <p id="bottom">10</p>
+        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
+      </div>
+      <div id="Room" style="position: absolute; top: 54%">
+        <div id="inner">
+          <img src="" />
+        </div>
+        <p id="center"><%= usable[5].name %></p>
+        <p id="bottom">10</p>
+        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
+      </div>
+    </div>
+
+    <div id="my_modal">
+      <form
+        class="modal-content animate"
+        action="/users/reservation"
+        method="post"
+      >
+        <div id="topBox">
+          <p id="topText">자습실 신청</p>
+        </div>
+        <div id="control">
+          <img src="" />
+          <p id="roomName">프로그래밍2실</p>
+          <p id="script">사용 교시</p>
+          <div id="selectBox">
+            <label
+              ><input type="checkbox" name="period" value="8" />8교시</label
+            >
+            <label
+              ><input type="checkbox" name="period" value="9" />9교시</label
+            >
+            <label
+              ><input type="checkbox" name="period" value="10" />10교시</label
+            >
+            <label
+              ><input type="checkbox" name="period" value="11" />11교시</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="period"
+                value="etc"
+                id="etc"
+                onclick="checkOkay()"
+              />기타</label
+            >
+            <label
+              ><input type="text" name="period" id="etcTxt" disabled="disabled"
+            /></label>
+          </div>
+          <p id="script2">신청팀 선택</p>
+          <select id="team">
+            <option value="">팀 선택</option>
+          </select>
+          <div id="okay">
+            <button id="okBtn">확인</button>
+          </div>
+        </div>
+        <a class="modal_close_btn">X</a>
+      </form>
+    </div>
+
+    <div id="nav_menu">
+      <ul>
+        <li>LOGO</li>
+        <li id="apply">실 신청</li>
+        <li id="main"><a href="/studentMain">마이페이지</a></li>
+        <li id="name"><%= userName %> 학생</li>
+      </ul>
+      <button id="logout">LOGOUT</button>
+    </div>
+    <script>
+      function change(num) {
+        var usable = document.getElementById("usable");
+        var using = document.getElementById("using");
+        var showRoom = document.getElementById("showRoom");
+        var doneRoom = document.getElementById("doneRoom");
+        if (num == 0) {
+          usable.style.borderBottom = "6px solid #5250B1";
+          using.style.borderBottom = "0";
+          usable.style.color = "#5250B1";
+          using.style.color = "#000000";
+          showRoom.style.display = "block";
+          doneRoom.style.display = "none";
+        } else if (num == 1) {
+          usable.style.borderBottom = "0";
+          using.style.borderBottom = "6px solid #5250B1";
+          usable.style.color = "#000000";
+          using.style.color = "#5250B1";
+          showRoom.style.display = "none";
+          doneRoom.style.display = "block";
+        }
+      }
+
+      function checkOkay() {
+        var check = document.getElementById("etc").checked;
+        if (check) {
+          document.getElementById("etcTxt").disabled = false;
+        } else {
+          document.getElementById("etcTxt").disabled = true;
+        }
+      }
+
+      function modal(id) {
+        var zIndex = 9999;
+        var modal = document.getElementById(id);
+
+        // 모달 div 뒤에 희끄무레한 레이어
+        var bg = document.createElement("div");
+        bg.setStyle({
+          position: "fixed",
+          zIndex: zIndex,
+          left: "0px",
+          top: "0px",
+          width: "100%",
+          height: "100%",
+          overflow: "auto",
+          // 레이어 색갈은 여기서 바꾸면 됨
+          backgroundColor: "rgba(0,0,0,0.4)",
+        });
+        document.body.append(bg);
+
+        // 닫기 버튼 처리, 시꺼먼 레이어와 모달 div 지우기
+        modal
+          .querySelector(".modal_close_btn")
+          .addEventListener("click", function () {
+            bg.remove();
+            modal.style.display = "none";
+          });
+
+        modal.setStyle({
+          position: "fixed",
+          display: "block",
+          boxShadow:
+            "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+
+          // 시꺼먼 레이어 보다 한칸 위에 보이기
+          zIndex: zIndex + 1,
+
+          // div center 정렬
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          msTransform: "translate(-50%, -50%)",
+          webkitTransform: "translate(-50%, -50%)",
+        });
+      }
+
+      // Element 에 style 한번에 오브젝트로 설정하는 함수 추가
+      Element.prototype.setStyle = function (styles) {
+        for (var k in styles) this.style[k] = styles[k];
+        return this;
+      };
+    </script>
+  </body>
+</html>

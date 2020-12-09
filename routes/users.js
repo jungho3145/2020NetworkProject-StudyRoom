@@ -22,9 +22,11 @@ router.post("/login", (req, res) => {
         // 로그인 성공 req.session에 기록
         req.session.isLogin = true;
         req.session.userEmail = req.body.email;
-        res.redirect("/");
+        req.session.studentId = results[0].studentId;
+        req.session.name = results[0].name;
+        res.redirect("/studentMain");
       } else {
-        res.send("<h1>로그인 실패</h1>");
+        res.redirect("/");
       }
     });
   } else {
@@ -48,11 +50,18 @@ router.post("/signUp", (req, res) => {
     req.body.num &&
     req.body.pwd
   ) {
-    var studentid = parseInt(
-      req.body.grade.toString() +
+    if (req.body.num < 10) {
+      var studentid =
+        req.body.grade.toString() +
         req.body.class.toString() +
-        req.body.num.toString()
-    );
+        "0" +
+        req.body.num.toString();
+    } else {
+      var studentid =
+        req.body.grade.toString() +
+        req.body.class.toString() +
+        req.body.num.toString();
+    }
 
     var name = req.body.name;
     var email = req.body.email;
