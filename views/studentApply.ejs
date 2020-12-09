@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>studentApply</title>
-    <link rel="stylesheet" href="../public/stylesheets/apply.css" />
+    <link rel="stylesheet" href="stylesheets/apply.css" />
   </head>
 
   <body>
@@ -13,13 +13,13 @@
     <div id="showRoom">
       <!--하드코딩 되있는거 forEach로 수정-->
       <% for(var i = 0; i < usable.length; i++){ %>
-      <div id="Room">
-        <div id="inner">
-          <img src="" />
+        <div id="Room">
+          <div id="inner">
+            <img src="" />
+          </div>
+          <p name="center"><%= usable[i].name %></p>
+          <button id="applyBtn" onclick="modal('my_modal', document.getElementsByName('center')[i].innerText)">신청</button>
         </div>
-        <p id="center"><%= usable[i].name %></p>
-        <button id="applyBtn" onclick="modal('my_modal', center.innerText)">신청</button>
-      </div>
       <% } %>
 
     <div id="my_modal">
