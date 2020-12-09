@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../public/stylesheets/applyManage.css" />
+</head>
+
+<body>
+    <div id="box">
+        <p>신청 / 실 관리</p>
+        <% for(var i = 0; i < 신청.length; i++){ %>
+        <div id="box_content">
+            <p>신청 실&nbsp;&nbsp;<%= 신청[i].applyRoom %></p>
+            <p>신청 팀&nbsp;&nbsp;<%= 신청[i].applyTeam %></p>
+            <p>사용 교시&nbsp;&nbsp;<%= 신청[i].applyPeriod %></p>
+            <button id="refuse">거절</button>
+            <button id="okay">허락</button>
+        </div>
+        <% } %>
+    </div>
+    <div id="nav_menu">
+        <ul>
+            <li>LOGO</li>
+            <li id="studentManage">학생 관리</li>
+            <li id="applyManage">신청 관리</li>
+            <li id="roomNow">실 사용 현황</li>
+            <li id="name"><%= userName %> 선생님</li>
+        </ul>
+        <button id="logout">LOGOUT</button>
+    </div>
+</body>
+
+</html>
