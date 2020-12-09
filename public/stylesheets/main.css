@@ -144,80 +144,34 @@ h2{
 #team1{
     width: 280px; height: 160px;
     background-color: #ffffff;
+    float: left;
     border-radius: 25px;
-    position: absolute; top: 4%; left: 3%;
+    margin-left: 20px;
+    margin-top: 25px;
     font-size: 20px;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
 }
-#team2{
-    width: 280px; height: 160px;
-    background-color: #ffffff;
-    border-radius: 25px;
-    position: absolute; top: 4%; left: 51.5%;
-    font-size: 20px;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-}
-#team3{
-    width: 280px; height: 160px;
-    background-color: #ffffff;
-    border-radius: 25px;
-    position: absolute; top: 52%; left: 3%;
-    font-size: 20px;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-}
-#team4{
-    width: 280px; height: 160px;
-    background-color: #ffffff;
-    border-radius: 25px;
-    position: absolute; top: 52%; left: 51.5%;
-    font-size: 20px;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-}
-#addBtn4{
-    width: 280px; height: 160px;
-    background-color: #5250B1;
-    border-radius: 25px;
-    position: absolute; top: 52%; left: 51.5%;
-    font-size: 100px;
-    text-align: center;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-}
-#addBtn3{
-    width: 280px; height: 160px;
-    background-color: #5250B1;
-    border-radius: 25px;
-    position: absolute; top: 52%; left: 3%;
-    font-size: 100px;
-    text-align: center;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-}
-#addBtn2{
-    width: 280px; height: 160px;
-    background-color: #5250B1;
-    border-radius: 25px;
-    position: absolute; top: 4%; left: 51.5%;
-    font-size: 100px;
-    text-align: center;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-}
+
 #addBtn1{
     width: 280px; height: 160px;
     background-color: #5250B1;
     border-radius: 25px;
-    position: absolute; top: 4%; left: 3%;
+    margin-left: 20px;
     font-size: 100px;
     text-align: center;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+    float: left;
 }
 #delete{
     width: 120px; height: 40px;
     background-color: #5250B1;
     border-radius: 25px;
-    position: absolute; bottom: 3%; left: 26%;
     border: 0;
     outline: 0;
     color: #ffffff;
     font-size: 15px;
+    margin-left: 80px;
+    margin-top: 8px;
 }
 a{
     text-decoration: none;

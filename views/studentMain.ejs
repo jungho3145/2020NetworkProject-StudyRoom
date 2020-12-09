@@ -80,92 +80,25 @@
     <div id="team">
       <h2 id="num3">내 팀</h2>
       <div id="myTeam">
-        <% if(teamCnt == 4){ %>
-        <!--팀 수만큼 forEach문 돌리면되지 않을까-->
-        <div id="team1">
-          <p id="teamName"><%= team[0].TeamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[0].name %></p>
-          <p id="leader">팀장 : <%= team[0].TeamLeader %></p>
-          <button id="delete" onclick="deleteTeam()">삭제</button>
-        </div>
-        <div id="team2">
-          <p id="teamName"><%= team[1].TeamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[1].name %></p>
-          <p id="leader">팀장 : <%= team[1].TeamLeader %></p>
-          <button id="delete" onclick="deleteTeam()">삭제</button>
-        </div>
-        <div id="team3">
-          <p id="teamName"><%= team[2].TeamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[2].name %></p>
-          <p id="leader">팀장 : <%= team[2].TeamLeader %></p>
-          <button id="delete" onclick="deleteTeam()">삭제</button>
-        </div>
-        <div id="team4">
-          <p id="teamName"><%= team[3].TeamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[3].name %></p>
-          <p id="leader">팀장 : <%= team[3].TeamLeader %></p>
-          <button id="delete" onclick="deleteTeam()">삭제</button>
-        </div>
-        <% }else if(teamCnt == 3){ %>
-        <div id="team1">
-          <p id="teamName"><%= team[0].TeamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[0].name %></p>
-          <p id="leader">팀장 : <%= team[0].TeamLeader %></p>
-          <button id="delete" onclick="deleteTeam()">삭제</button>
-        </div>
-        <div id="team2">
-          <p id="teamName"><%= team[1].TeamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[1].name %></p>
-          <p id="leader">팀장 : <%= team[1].TeamLeader %></p>
-          <button id="delete" onclick="deleteTeam()">삭제</button>
-        </div>
-        <div id="team3">
-          <p id="teamName"><%= team[2].TeamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[2].name %></p>
-          <p id="leader">팀장 : <%= team[2].TeamLeader %></p>
-          <button id="delete" onclick="deleteTeam()">삭제</button>
-        </div>
-        <div id="addBtn4" onclick="createTeam()">
-          <p id="add">+</p>
-        </div>
-        <% }else if(teamCnt == 2){ %>
-        <div id="team1">
-          <p id="teamName"><%= team[0].TeamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[0].name %></p>
-          <p id="leader">팀장 : <%= team[0].TeamLeader %></p>
-          <button id="delete" onclick="deleteTeam()">삭제</button>
-        </div>
-        <div id="team2">
-          <p id="teamName"><%= team[1].TeamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[1].name %></p>
-          <p id="leader">팀장 : <%= team[1].TeamLeader %></p>
-          <button id="delete" onclick="deleteTeam()">삭제</button>
-        </div>
-        <div id="addBtn3" onclick="createTeam()">
-          <p id="add">+</p>
-        </div>
-        <% }else if(teamCnt == 1){ %>
-        <div id="team1">
-          <p id="teamName"><%= team[0].teamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[0].name %></p>
-          <p id="leader">팀장 : <%= team[0].TeamLeader %></p>
-          <button id="delete" onclick="deleteTeam()">삭제</button>
-        </div>
-        <div id="addBtn2" onclick="createTeam()">
-          <p id="add">+</p>
-        </div>
-        <% }else if(teamCnt == 0){ %>
-        <div id="addBtn1" onclick="createTeam()">
-          <p id="add">+</p>
-        </div>
-        <% } %>
+        <% for(var i = 0; i < team.length; i++){ %>
+          <div id="team1">
+              <p id="teamName"><%= team[i].name %> 팀</p>
+              <p id="teacher">지도 교사 : <%= team[i].teacher %></p>
+              <p id="leader">팀장 : <%= team[i].leader %></p>
+              <button id="delete" onclick="deleteTeam()">삭제</button>
+          </div>
+          <% } %>
+          <% if(team.length < 4){ %> <!--팀은 최대 4개로-->
+          <div id="addBtn1" onclick="createTeam()">
+              <p id="add">+</p>
+          </div>
+          <% } %>
       </div>
     </div>
 
     <script>
       function deleteTeam(num) {
         if (confirm("팀을 삭제하시겠습니까??") == true) {
-          //확인
           //삭제하는코드
         } else {
           //취소
