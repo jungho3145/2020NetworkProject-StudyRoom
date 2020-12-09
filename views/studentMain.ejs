@@ -81,18 +81,18 @@
       <h2 id="num3">내 팀</h2>
       <div id="myTeam">
         <% for(var i = 0; i < team.length; i++){ %>
-          <div id="team1">
-              <p id="teamName"><%= team[i].name %> 팀</p>
-              <p id="teacher">지도 교사 : <%= team[i].teacher %></p>
-              <p id="leader">팀장 : <%= team[i].leader %></p>
-              <button id="delete" onclick="deleteTeam()">삭제</button>
-          </div>
-          <% } %>
-          <% if(team.length < 4){ %> <!--팀은 최대 4개로-->
-          <div id="addBtn1" onclick="createTeam()">
-              <p id="add">+</p>
-          </div>
-          <% } %>
+        <div id="team1">
+          <p id="teamName"><%= team[i].TeamName %> 팀</p>
+          <p id="teacher">지도 교사 : <%= team[i].name %></p>
+          <p id="leader">팀장 : <%= team[i].TeamLeader %></p>
+          <button id="delete" onclick="deleteTeam()">삭제</button>
+        </div>
+        <% } %> <% if(team.length < 4){ %>
+        <!--팀은 최대 4개로-->
+        <div id="addBtn1" onclick="createTeam()">
+          <p id="add">+</p>
+        </div>
+        <% } %>
       </div>
     </div>
 
