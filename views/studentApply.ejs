@@ -12,55 +12,16 @@
     </div>
     <div id="showRoom">
       <!--하드코딩 되있는거 forEach로 수정-->
+      <% for(var i = 0; i < usableRoom.length; i++){ %>
       <div id="Room">
         <div id="inner">
           <img src="" />
         </div>
-        <p id="center"><%= usable[0].name %></p>
-        <p id="bottom">10</p>
+        <p id="center"><%= usableRoom[i].name %></p>
+        <p id="bottom"><%= usableRoom[i].maxPeo %></p>
         <button id="applyBtn" onclick="modal('my_modal')">신청</button>
       </div>
-      <div id="Room" style="position: absolute; left: 20.7%">
-        <div id="inner">
-          <img src="" />
-        </div>
-        <p id="center"><%= usable[1].name %></p>
-        <p id="bottom">10</p>
-        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
-      </div>
-      <div id="Room" style="position: absolute; left: 41.4%">
-        <div id="inner">
-          <img src="" />
-        </div>
-        <p id="center"><%= usable[2].name %></p>
-        <p id="bottom">10</p>
-        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
-      </div>
-      <div id="Room" style="position: absolute; left: 62.1%">
-        <div id="inner">
-          <img src="" />
-        </div>
-        <p id="center"><%= usable[3].name %></p>
-        <p id="bottom">10</p>
-        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
-      </div>
-      <div id="Room" style="position: absolute; left: 82.8%">
-        <div id="inner">
-          <img src="" />
-        </div>
-        <p id="center"><%= usable[4].name %></p>
-        <p id="bottom">10</p>
-        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
-      </div>
-      <div id="Room" style="position: absolute; top: 54%">
-        <div id="inner">
-          <img src="" />
-        </div>
-        <p id="center"><%= usable[5].name %></p>
-        <p id="bottom">10</p>
-        <button id="applyBtn" onclick="modal('my_modal')">신청</button>
-      </div>
-    </div>
+      <% } %>
 
     <div id="my_modal">
       <form class="modal-content animate" action="/ApplySend" method="post">

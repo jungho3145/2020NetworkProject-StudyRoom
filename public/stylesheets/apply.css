@@ -66,6 +66,7 @@ hr{
 #showRoom{
     width: 1425px; height: 100%;
     position: absolute; top: 18%; left: 3%;
+    float: left;
 }
 #doneRoom{
     width: 1425px; height: 100%;
@@ -82,7 +83,10 @@ hr{
 #Room{
     width: 240px; height: 370px;
     background-color: #F9F9F9;
-    position: absolute;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     border-radius: 25px;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
 }
@@ -99,8 +103,8 @@ hr{
     font-size: 20px;
     border: 0;
     border-radius: 25px;
-    position: absolute; left: 25%; bottom: 5%;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    margin-left: 60px;
 }
 p{
     width: 240px;
