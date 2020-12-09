@@ -63,11 +63,7 @@
     </div>
 
     <div id="my_modal">
-      <form
-        class="modal-content animate"
-        action="/users/reservation"
-        method="post"
-      >
+      <form class="modal-content animate" action="/ApplySend" method="post">
         <div id="topBox">
           <p id="topText">자습실 신청</p>
         </div>
@@ -88,23 +84,17 @@
             <label
               ><input type="checkbox" name="period" value="11" />11교시</label
             >
-            <label
-              ><input
-                type="checkbox"
-                name="period"
-                value="etc"
-                id="etc"
-                onclick="checkOkay()"
-              />기타</label
-            >
-            <label
-              ><input type="text" name="period" id="etcTxt" disabled="disabled"
-            /></label>
           </div>
           <p id="script2">신청팀 선택</p>
-          <select id="team">
-            <option value="">팀 선택</option>
-          </select>
+          <div>
+            <select name="team" id="team">
+              <% if(team) { %> <% team.forEach(element => { %>
+              <option value="<%= element.TeamName %>">
+                <%= element.TeamName %>
+              </option>
+              <% }) %><% } %>
+            </select>
+          </div>
           <div id="okay">
             <button id="okBtn">확인</button>
           </div>

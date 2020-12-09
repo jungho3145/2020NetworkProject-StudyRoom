@@ -42,10 +42,17 @@ router.get("/studentMain", (req, res) => {
               date < new Date(usingOrBooking[0].startDate)
             ) {
               console.log("if 1");
-              using = false;
-              booking = {
-                bookingRoom: usingOrBooking[0].name,
-              };
+              if (usingOrBooking.length == 0) {
+                Booking = false;
+                using = {
+                  usingRoom: usingOrBooking[0].name,
+                };
+              } else {
+                using = false;
+                booking = {
+                  bookingRoom: usingOrBooking[0].name,
+                };
+              }
               console.log(booking);
             } else if (
               usingOrBooking.length >= 2 &&
@@ -84,15 +91,22 @@ router.get("/studentMain", (req, res) => {
 
 router.get("/studentApply", (req, res) => {
   reservationModel.getUsableRooms((results) => {
-    var usableData = [{}, {}, {}, {}, {}, {}];
-    for (let index = 0; index < usableData.length; index++) {
-      usableData[index] = results[0];
-      console.log(usableData);
-    }
-    res.render("studentApply", {
-      userName: req.session.name,
-      usable: usableData,
+    teamModel.readTeam(req.session.studentId, (teams) => {
+      var usableData = [{}, {}, {}, {}, {}, {}];
+      for (let index = 0; index < usableData.length; index++) {
+        usableData[index] = results[0];
+      }
+      res.render("studentApply", {
+        userName: req.session.name,
+        usable: usableData,
+        team: teams,
+      });
     });
   });
+});
+
+router.post("/ApplySend", (req, res) => {
+  console.log(req.body);
+  res.redirect("/studentApply");
 });
 module.exports = router;
