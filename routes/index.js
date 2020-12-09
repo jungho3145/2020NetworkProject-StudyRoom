@@ -36,17 +36,19 @@ router.get("/studentMain", (req, res) => {
         console.log(count);
         teamModel.usingOrBookingData(studentId, (usingOrBooking) => {
           var using, booking;
-          if (usingOrBooking.length <= 1) {
-            using = {
-              usingRoom: usingOrBooking[0].name,
-            };
-          } else {
-            using = {
-              usingRoom: usingOrBooking[0].name,
-            };
-            booking = {
-              bookingRoom: usingOrBooking[1].name,
-            };
+          if (usingOrBooking.length !== 0) {
+            if (usingOrBooking.length <= 1) {
+              using = {
+                usingRoom: usingOrBooking[0].name,
+              };
+            } else {
+              using = {
+                usingRoom: usingOrBooking[0].name,
+              };
+              booking = {
+                bookingRoom: usingOrBooking[1].name,
+              };
+            }
           }
           res.render("studentMain", {
             title: "studentMain",

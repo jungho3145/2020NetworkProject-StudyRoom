@@ -13,3 +13,7 @@ exports.getUsableRooms = (cb) => {
     }
   );
 };
+
+// exports.sendApply = (cb) => {
+
+// }
