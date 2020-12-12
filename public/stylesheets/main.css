@@ -177,3 +177,64 @@ a{
     text-decoration: none;
     color: #000;
 }
+#my_modal {
+    display: none;
+    width: 400px;
+    height: 370px;
+    background-color: #fefefe;
+    
+    border-radius: 10px;
+}
+
+#my_modal .modal_close_btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#topBox{
+    width: 400px; height: 50px;
+    background-color: #5250B1;
+    border-top-left-radius: 10px; border-top-right-radius: 10px;
+}
+
+#topText{
+    width: 400px;
+    text-align: center;
+    padding-top: 10px;
+    color: #ffffff;
+}
+
+#control{
+    padding: 20px 20px;
+}
+
+#okBtn{
+    width: 80px; height: 35px;
+    color: #ffffff;
+    background-color: #5250B1;
+    font-size: 18px;
+    font-weight: normal;
+    border: 0;
+    border-radius: 25px;
+    position: absolute; bottom: 5%;
+    margin-left: 140px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#control p{
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+#txt{
+    width: 200px;
+    position: absolute; right: 0%; top: 21%;
+}
+
+#txt input{
+    margin-top: 5px;
+    margin-bottom: 35px;
+}
