@@ -49,3 +49,16 @@ exports.usingOrBookingData = (studentId, cb) => {
     }
   });
 };
+
+exports.usingRoomDatabyTeam = (teamName, cb) => {
+  sql =
+    "SELECT name FROM BookingList, Rooms WHERE Teams = ? AND isPermission = 1 AND Rooms = RoomsId";
+  values = [teamName];
+  connection.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.log(error);
+    } else {
+      cb(results);
+    }
+  });
+};

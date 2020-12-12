@@ -88,4 +88,9 @@ router.post("/ApplySend", (req, res) => {
   res.redirect("/studentApply");
 });
 
+router.post("/addTeam", (req, res) => {
+  console.log(req.body);
+  res.redirect("/studentMain");
+});
+
 module.exports = router;
