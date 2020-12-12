@@ -22,7 +22,7 @@ exports.selectUserById = function (studentId, cb) {
       if (error) {
         console.log(error);
       } else {
-        console.log("Model: " + results[0].name);
+        //console.log("Model: " + results[0].name);
         cb(results);
       }
     }
@@ -38,6 +38,20 @@ exports.insertUser = function (studentid, name, email, pwd, cb) {
         console.log(error);
       } else {
         cb();
+      }
+    }
+  );
+};
+
+exports.selectTeachers = (teacherId, cb) => {
+  connection.query(
+    "SELECT * FROM teachers WHERE teachersId = ?",
+    [teacherId],
+    (error, results, fields) => {
+      if (error) {
+        console.log(error);
+      } else {
+        cb(results);
       }
     }
   );

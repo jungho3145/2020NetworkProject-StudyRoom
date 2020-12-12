@@ -29,20 +29,20 @@
         </div>
         <div id="control">
           <img src="" />
-          <p id="roomName"></p> <!--방 이름 선택한걸로 바뀌게 할 수 있나?-->
+          <input type="text" name="roomName" id="RoomName" readonly> <!--방 이름 선택한걸로 바뀌게 할 수 있나?-->
           <p id="script">사용 교시</p>
           <div id="selectBox">
             <label
-              ><input type="checkbox" name="period" value="8" />8교시</label
+              ><input id="input8" type="checkbox" name="period" value="8" />8교시</label
             >
             <label
-              ><input type="checkbox" name="period" value="9" />9교시</label
+              ><input id="input9" type="checkbox" name="period" value="9" />9교시</label
             >
             <label
-              ><input type="checkbox" name="period" value="10" />10교시</label
+              ><input id="input10" type="checkbox" name="period" value="10" />10교시</label
             >
             <label
-              ><input type="checkbox" name="period" value="11" />11교시</label
+              ><input id="input11" type="checkbox" name="period" value="11" />11교시</label
             >
           </div>
           <p id="script2">신청팀 선택</p>
@@ -107,8 +107,8 @@
       function modal(id, name) {
         var zIndex = 9999;
         var modal = document.getElementById(id);
-        var RoomName = document.getElementById('roomName');
-        RoomName.innerHTML = name;
+        var RoomName = document.getElementById('RoomName');
+        RoomName.value = name;
 
         // 모달 div 뒤에 희끄무레한 레이어
         var bg = document.createElement("div");

@@ -23,32 +23,28 @@ router.get("/", function (req, res, next) {
 router.get("/studentMain", (req, res) => {
   updateModel.dataUpdateByTime();
   userModel.selectUserById(req.session.studentId, (User) => {
-    console.log(User);
+    //console.log(User);
     var studentId = String(User[0].studentId);
     var grade = parseInt(studentId.substr(0, 1));
     var classnum = parseInt(studentId.substr(1, 1));
     var num = parseInt(studentId.substr(2, 2));
-    console.log(grade, classnum, num);
+    //console.log(grade, classnum, num);
 
     teamModel.readTeam(studentId, (Team) => {
-      console.log(Team);
+      //console.log(Team);
       teamModel.countTeam(studentId, (count) => {
-        console.log(count);
-        teamModel.usingOrBookingData(studentId, (usingOrBooking) => {
+        //console.log(count);
+        teamModel.usingOrBookingData(studentId, (Booking, Using) => {
           var using, booking;
-          if (usingOrBooking.length !== 0) {
-            if (usingOrBooking.length <= 1) {
-              using = {
-                usingRoom: usingOrBooking[0].name,
-              };
-            } else {
-              using = {
-                usingRoom: usingOrBooking[0].name,
-              };
-              booking = {
-                bookingRoom: usingOrBooking[1].name,
-              };
-            }
+          if (Using[0]) {
+            using = {
+              usingRoom: Using[0].name,
+            };
+          }
+          if (Booking[0]) {
+            booking = {
+              bookingRoom: Booking[0].name,
+            };
           }
           res.render("studentMain", {
             title: "studentMain",
@@ -70,7 +66,9 @@ router.get("/studentMain", (req, res) => {
 });
 
 router.get("/studentApply", (req, res) => {
+  updateModel.dataUpdateByTime();
   reservationModel.getUsableRooms((results) => {
+    //console.log(results);
     teamModel.readTeam(req.session.studentId, (teams) => {
       res.render("studentApply", {
         userName: req.session.name,
@@ -83,6 +81,11 @@ router.get("/studentApply", (req, res) => {
 
 router.post("/ApplySend", (req, res) => {
   console.log(req.body);
+  var data = req.body;
+  if (data.period) {
+    reservationModel.sendApply(data.roomName, data.period, data.team);
+  }
   res.redirect("/studentApply");
 });
+
 module.exports = router;

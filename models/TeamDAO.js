@@ -30,13 +30,22 @@ exports.countTeam = (studentId, cb) => {
 
 exports.usingOrBookingData = (studentId, cb) => {
   sql =
-    "SELECT Rooms.name, BookingList.startDate, BookingList.endDate FROM studydb.BookingList, studydb.Team, studydb.Team_User, studydb.user, studydb.Rooms where BookingList.Teams = Team.TeamName and BookingList.Rooms = Rooms.RoomsId and Team_User.TeamId = Team.TeamId and Team_User.studentId = user.studentId and user.studentId = ? and isReturned = 0 ORDER BY BookingList.startDate";
+    "SELECT Rooms.name, BookingList.startDate, BookingList.endDate, BookingList.isPermission FROM studydb.BookingList, studydb.Team, studydb.Team_User, studydb.user, studydb.Rooms where BookingList.Teams = Team.TeamName and BookingList.Rooms = Rooms.RoomsId and Team_User.TeamId = Team.TeamId and Team_User.studentId = user.studentId and user.studentId = ? and isPermission = 0 ORDER BY BookingList.startDate";
   values = [studentId];
-  connection.query(sql, value, (error, results, fields) => {
+  connection.query(sql, values, (error, Booking, fields) => {
     if (error) {
       console.log(error);
     } else {
-      cb(results);
+      sql =
+        "SELECT Rooms.name, BookingList.startDate, BookingList.endDate, BookingList.isPermission FROM studydb.BookingList, studydb.Team, studydb.Team_User, studydb.user, studydb.Rooms where BookingList.Teams = Team.TeamName and BookingList.Rooms = Rooms.RoomsId and Team_User.TeamId = Team.TeamId and Team_User.studentId = user.studentId and user.studentId = ? and isPermission = 1 ORDER BY BookingList.startDate";
+      values = [studentId];
+      connection.query(sql, values, (error, Using, fields) => {
+        if (error) {
+          console.log(error);
+        } else {
+          cb(Booking, Using);
+        }
+      });
     }
   });
 };

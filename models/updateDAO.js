@@ -8,8 +8,6 @@ exports.dataUpdateByTime = () => {
   date[2].setHours(19, 30, 0, 0);
   date[3].setHours(20, 30, 0, 0);
 
-  var thisTime = new Date();
-
   connection.query(
     "SELECT * FROM BookingList",
     [],
@@ -23,18 +21,7 @@ exports.dataUpdateByTime = () => {
 
           if (thisTime.getTime() >= endTime.getTime()) {
             connection.query(
-              "UPDATE studydb.BookingList SET isReturned = 1 WHERE (Rooms_TeamId = ?);",
-              [element.Rooms_TeamId],
-              (error, results, fields) => {
-                if (error) {
-                  console.log(error);
-                } else {
-                }
-              }
-            );
-          } else {
-            connection.query(
-              "UPDATE studydb.BookingList SET isReturned = 0 WHERE (Rooms_TeamId = ?);",
+              "DELETE FROM `studydb`.`BookingList` WHERE (`Rooms_TeamId` = '?');",
               [element.Rooms_TeamId],
               (error, results, fields) => {
                 if (error) {
@@ -50,7 +37,7 @@ exports.dataUpdateByTime = () => {
   );
 
   connection.query(
-    "SELECT Rooms, startDate, endDate FROM studydb.BookingList where isReturned = 0",
+    "SELECT Rooms, startDate, endDate FROM studydb.BookingList WHERE isPermission = 0",
     [],
     (error, results, fields) => {
       if (error) {
@@ -98,6 +85,50 @@ exports.dataUpdateByTime = () => {
               "UPDATE studydb.Rooms SET isReservation11 = 1 WHERE RoomsId = ?",
               [element.Rooms],
               () => {}
+            );
+          }
+        });
+      }
+    }
+  );
+
+  connection.query(
+    "SELECT studentId, Team.TeamId, Teams, startDate, endDate FROM BookingList, Team, Team_User where TeamName = Teams AND Team.TeamId = Team_User.TeamId AND isPermission = 1",
+    [],
+    (error, results, feilds) => {
+      if (error) {
+        console.log(error);
+      } else {
+        results.forEach((element) => {
+          var date = new Date();
+          var start = new Date(element.startDate);
+          var end = new Date(element.endDate);
+          if (
+            date.getTime() >= start.getTime() &&
+            date.getTIme <= end.getTime()
+          ) {
+            connection.query(
+              "UPDATE `studydb`.`user` SET `isMoved` = '1' WHERE (`studentId` = ?);",
+              [element.studentId],
+              (error, results, feilds) => {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log("유저 이동 업데이트 완료!");
+                }
+              }
+            );
+          } else {
+            connection.query(
+              "UPDATE `studydb`.`user` SET `isMoved` = '0' WHERE (`studentId` = ?);",
+              [element.studentId],
+              (error, results, feilds) => {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log("유저 이동 업데이트 완료!");
+                }
+              }
             );
           }
         });
