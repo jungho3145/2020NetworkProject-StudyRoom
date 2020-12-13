@@ -115,7 +115,7 @@ exports.dataUpdateByTime = () => {
                 if (error) {
                   console.log(error);
                 } else {
-                  console.log("유저 이동 업데이트 완료!1");
+                  //console.log("유저 이동 업데이트 완료!1");
                 }
               }
             );
@@ -127,7 +127,7 @@ exports.dataUpdateByTime = () => {
                 if (error) {
                   console.log(error);
                 } else {
-                  console.log("유저 이동 업데이트 완료!2");
+                  //console.log("유저 이동 업데이트 완료!2");
                 }
               }
             );

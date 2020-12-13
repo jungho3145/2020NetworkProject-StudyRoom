@@ -68,6 +68,32 @@ exports.sendApply = (roomName, period, teamName) => {
   );
 };
 
+exports.getApplyListbyName = (TeacherName, cb) => {
+  sql =
+    "SELECT * FROM BookingList, Rooms WHERE Rooms = RoomsId and teachersName = ? and isPermission = 0";
+  values = [TeacherName];
+  connection.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.log(error);
+    } else {
+      cb(results);
+    }
+  });
+};
+
+exports.ApplyOk = (bookingListId, cb) => {
+  sql =
+    "UPDATE `studydb`.`BookingList` SET `isPermission` = '1' WHERE (`Rooms_TeamId` = ?)";
+  values = [bookingListId];
+  connection.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.log(error);
+    } else {
+      cb();
+    }
+  });
+};
+
 var setDate = (h, m) => {
   date = new Date();
   date.setHours(h, m, 0, 0);
