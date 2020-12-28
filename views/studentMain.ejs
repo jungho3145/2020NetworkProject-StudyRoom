@@ -58,10 +58,25 @@
       <% if(Using){ %>
       <div id="usingRoom">
         <div id="inner">
-          <img src="images/user.png" />
+          <img
+            src="images/room.jpg"
+            width="100%"
+            height="100%"
+            style="margin-left: 60px"
+          />
         </div>
         <p id="center"><%= Using.usingRoom %></p>
-        <button id="returnBtn">반납</button>
+        <div>
+          <form action="/returnRoom" method="POST">
+            <input
+              type="text"
+              name="id"
+              value="<%= Using.usingRoomNum %>"
+              style="display: none"
+            />
+            <button id="returnBtn">반납</button>
+          </form>
+        </div>
       </div>
       <% } %>
     </div>
@@ -70,7 +85,12 @@
       <% if(Booking){ %>
       <div id="bookRoom">
         <div id="inner">
-          <img src="images/user.png" />
+          <img
+            src="images/room.jpg"
+            width="100%"
+            height="100%"
+            style="margin-left: 60px"
+          />
         </div>
         <p id="center"><%= Booking.bookingRoom %></p>
         <button id="cancelBtn">취소</button>
@@ -82,9 +102,15 @@
       <div id="myTeam">
         <% for(var i = 0; i < team.length; i++){ %>
         <div id="team1">
-          <p id="teamName"><%= team[i].TeamName %> 팀</p>
-          <p id="teacher">지도 교사 : <%= team[i].name %></p>
-          <p id="leader">팀장 : <%= team[i].TeamLeader %></p>
+          <p id="teamName" style="padding-top: 10px; padding-left: 10px">
+            <%= team[i].TeamName %> 팀
+          </p>
+          <p id="teacher" style="padding-left: 10px">
+            지도 교사 : <%= team[i].name %>
+          </p>
+          <p id="leader" style="padding-left: 10px">
+            팀장 : <%= team[i].TeamLeader %>
+          </p>
           <button id="delete" onclick="deleteTeam()">삭제</button>
         </div>
         <% } %> <% if(team.length < 4){ %>

@@ -38,11 +38,13 @@ router.get("/studentMain", (req, res) => {
           var using, booking;
           if (Using[0]) {
             using = {
+              usingRoomNum: Using[0].Rooms_TeamId,
               usingRoom: Using[0].name,
             };
           }
           if (Booking[0]) {
             booking = {
+              bookingRoomNum: Booking[0].Rooms_TeamId,
               bookingRoom: Booking[0].name,
             };
           }
@@ -66,9 +68,22 @@ router.get("/studentMain", (req, res) => {
 });
 
 router.get("/studentApply", (req, res) => {
-  updateModel.dataUpdateByTime();
   reservationModel.getUsableRooms((results) => {
+    updateModel.dataUpdateByTime();
     //console.log(results);
+    for (let i = 0; i < results.length; i++) {
+      results[i].Reservations = {
+        re8: results[i].isReservation8,
+        re9: results[i].isReservation9,
+        re10: results[i].isReservation10,
+        re11: results[i].isReservation11,
+      };
+      delete results[i].isReservation8;
+      delete results[i].isReservation9;
+      delete results[i].isReservation10;
+      delete results[i].isReservation11;
+    }
+    console.log(results);
     teamModel.readTeam(req.session.studentId, (teams) => {
       res.render("studentApply", {
         userName: req.session.name,
@@ -90,6 +105,11 @@ router.post("/ApplySend", (req, res) => {
 
 router.post("/addTeam", (req, res) => {
   console.log(req.body);
+  res.redirect("/studentMain");
+});
+
+router.post("/returnRoom", (req, res) => {
+  reservationModel.returnRooms(req.body.id);
   res.redirect("/studentMain");
 });
 

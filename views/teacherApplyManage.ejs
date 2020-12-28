@@ -13,16 +13,18 @@
         <p>신청 실&nbsp;&nbsp;<%= applyList[i].name %></p>
         <p>신청 팀&nbsp;&nbsp;<%= applyList[i].Teams %></p>
         <p>사용 교시&nbsp;&nbsp;<%= applyList[i].period %></p>
-        <button id="refuse">거절</button>
-        <form action="/teachers/<%= userId %>/applyOk" method="POST">
-          <input
-            type="text"
-            name="id"
-            value="<%= applyList[i].id %>"
-            style="display: none"
-          />
-          <button id="okay" type="submit">확인</button>
-        </form>
+        <div style="display: flex; align-items: center">
+          <button id="refuse">거절</button>
+          <form action="/teachers/<%= userId %>/applyOk" method="POST">
+            <input
+              type="text"
+              name="id"
+              value="<%= applyList[i].id %>"
+              style="display: none"
+            />
+            <button id="okay" type="submit">확인</button>
+          </form>
+        </div>
       </div>
       <% } %>
     </div>

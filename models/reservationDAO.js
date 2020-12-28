@@ -2,7 +2,7 @@ var connection = require("./db");
 
 exports.getUsableRooms = (cb) => {
   connection.query(
-    "SELECT * FROM studydb.Rooms WHERE isReservation8 = 0 or isReservation9 = 0 or isReservation10 = 0 or isReservation11 = 0",
+    "SELECT * FROM Rooms WHERE isReservation8 = 0 or isReservation9 = 0 or isReservation10 = 0 or isReservation11 = 0",
     [],
     (error, results, fields) => {
       if (error) {
@@ -90,6 +90,17 @@ exports.ApplyOk = (bookingListId, cb) => {
       console.log(error);
     } else {
       cb();
+    }
+  });
+};
+
+exports.returnRooms = (bookingListId) => {
+  var thisDate = new Date();
+  sql = "UPDATE BookingList SET endDate = ? WHERE Rooms_TeamId = ?";
+  values = [thisDate, bookingListId];
+  connection.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.log(error);
     }
   });
 };

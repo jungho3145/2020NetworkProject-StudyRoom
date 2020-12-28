@@ -13,12 +13,17 @@
     <div id="showRoom">
       <!--하드코딩 되있는거 forEach로 수정-->
       <% for(var i = 0; i < usable.length; i++){ %>
-        <div id="Room">
+        <div id="Room" style="float: left;">
           <div id="inner">
-            <img src="" />
+            <img src="images/room.jpg"  width="80%" height="80%" style="margin: 25px;"/>
           </div>
           <p name="center"><%= usable[i].name %></p>
-          <button id="applyBtn" onclick="modal('my_modal', '<%= usable[i].name %>')">신청</button>
+          <button id="applyBtn" onclick="modal('my_modal', '<%= usable[i].name %>', {
+              re8: parseInt('<%= usable[i].Reservations.re8 %>'),
+              re9: parseInt('<%= usable[i].Reservations.re9 %>',),
+              re10: parseInt('<%= usable[i].Reservations.re10 %>'),
+              re11: parseInt('<%= usable[i].Reservations.re11 %>'),
+            })">신청</button>
         </div>
       <% } %>
 
@@ -70,7 +75,7 @@
         <li id="main"><a href="/studentMain">마이페이지</a></li>
         <li id="name"><%= userName %> 학생</li>
       </ul>
-      <button id="logout">LOGOUT</button>
+      <a href="/users/logout"><button id="logout">LOGOUT</button></a>
     </div>
     <script>
       function change(num) {
@@ -104,12 +109,25 @@
         }
       }
 
-      function modal(id, name) {
+      function modal(id, name, reserv) {
         var zIndex = 9999;
         var modal = document.getElementById(id);
         var RoomName = document.getElementById('RoomName');
         RoomName.value = name;
+        console.log(JSON.stringify(reserv));  
 
+        if(reserv.re8){
+          document.getElementById('input8').disabled = true;
+        }
+        if(reserv.re9){
+          document.getElementById('input9').disabled = true;
+        }
+        if(reserv.re10){
+          document.getElementById('input10').disabled = true;
+        }
+        if(reserv.re11){
+          document.getElementById('input11').disabled = true;
+        }
         // 모달 div 뒤에 희끄무레한 레이어
         var bg = document.createElement("div");
         bg.setStyle({
