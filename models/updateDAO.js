@@ -54,7 +54,6 @@ exports.dataUpdateByTime = () => {
   );
 
   if (nowDate >= date[0]) {
-    console.log("update8");
     connection.query("UPDATE Rooms SET isReservation8 = 1");
   }
   if (nowDate >= date[1]) {
